@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Piano Virtual</title>
+  </head>
+  <style>
+    button {
+      background-color: purple;
+      color: white;
+      margin: 3px;
+      height: 180px;
+      width: 80px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: rgb(78, 2, 78);
+      transition: 0.3s all ease-in-out;
+    }
+  </style>
+  <body>
+    <h3>Sebuah Keisengan</h3>
+    <div id="note"></div>
+    <p>Daripada pencet ngasal coba ini axja :</p>
+    <br />
+    <p>C D E E E D C D E F F E D C C E E D D E D C</p>
+
+    <script>
+      const chords = ["a", "c", "d", "e", "f"];
+      const note = document.getElementById("note");
+
+      chords.forEach((chord) => {
+        const button = document.createElement("button");
+
+        button.innerText = chord;
+
+        button.addEventListener("click", () => {
+          const sound = new Audio(`/pianov/sound/${chord}.wav`);
+          sound.play();
+        });
+
+        note.appendChild(button);
+      });
+    </script>
+  </body>
+</html>
